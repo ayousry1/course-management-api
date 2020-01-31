@@ -19,9 +19,11 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
-    public List<Course> getAllCourses() {
+    public List<Course> getAllCoursesByTopicId(int topicId) {
         ArrayList<Course> courses = new ArrayList<>();
-        courseRepository.findAll().forEach(courses::add);
+        courseRepository
+                .findByTopicId(topicId)
+                .forEach(courses::add);
         return courses;
     }
 
@@ -29,12 +31,12 @@ public class CourseService {
         return courseRepository.findById(id).orElse(null);
     }
 
-    public void addCourse(Course topic) {
-        courseRepository.save(topic);
+    public void addCourseUnderTopic(Course course) {
+        courseRepository.save(course);
     }
 
-    public void updateCourseById(Course topic) {
-        courseRepository.save(topic);
+    public void updateCourseById(Course course) {
+        courseRepository.save(course);
     }
 
     public void removeCourseById(int id) {
