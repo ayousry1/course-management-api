@@ -7,6 +7,5 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CourseManagementApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(CourseManagementApiApplication.class, args);
-        System.out.println("Application Started!");
     }
 }
