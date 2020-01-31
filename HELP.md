@@ -1,6 +1,8 @@
 # Getting Started
 
 ### Reference Documentation
+Swagger Link for the API: http://localhost:8080/v2/api-docs
+
 For further reference, please consider the following sections:
 
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
