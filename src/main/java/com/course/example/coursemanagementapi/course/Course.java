@@ -1,6 +1,11 @@
 package com.course.example.coursemanagementapi.course;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Course {
+    @Id
     private int id;
     private String name;
 

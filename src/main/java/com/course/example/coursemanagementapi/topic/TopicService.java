@@ -1,5 +1,6 @@
 package com.course.example.coursemanagementapi.topic;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,33 +9,33 @@ import java.util.List;
 
 @Service
 public class TopicService {
-    private List<Topic> topicList = new ArrayList<Topic>(Arrays.asList(
-            new Topic(1,"topic 1" , "topic description"),
-            new Topic(2,"topic 2" , "topic description"),
-            new Topic(3,"topic 3" , "topic description")
-    ));
+
+    private TopicRepository topicRepository;
+
+    @Autowired
+    public TopicService(TopicRepository topicRepository) {
+        this.topicRepository = topicRepository;
+    }
+
     public List<Topic> getAllTopics() {
-        return topicList;
+        ArrayList<Topic> topics = new ArrayList<>();
+        topicRepository.findAll().forEach(topics::add);
+        return topics;
     }
 
     public Topic getTopicById(int topicId){
-        return topicList.stream().filter(topic -> topic.getId() == topicId).findFirst().get();
+        return topicRepository.findById(topicId).orElse(null);
     }
 
     public void addTopic(Topic topic){
-        topicList.add(topic);
+        topicRepository.save(topic);
     }
 
-    public void updateTopicById(Topic topic , int topicId){
-        for(int i = 0 ; i < topicList.size() ;i++){
-            Topic t = topicList.get(i);
-            if (t.getId() == topicId){
-                topicList.set(i,topic);
-            }
-        }
+    public void updateTopicById(Topic topic){
+        topicRepository.save(topic);
     }
 
     public void removeTopicById(int id){
-        topicList.removeIf(topic -> topic.getId() == id);
+        topicRepository.deleteById(id);
     }
 }

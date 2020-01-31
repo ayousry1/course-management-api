@@ -8,8 +8,15 @@ import java.util.List;
 @RestController
 public class TopicController {
 
-    @Autowired
     private TopicService topicService;
+
+    public TopicController() {
+    }
+
+    @Autowired
+    public TopicController(TopicService topicService) {
+        this.topicService = topicService;
+    }
 
     @RequestMapping("/topics")
     public List<Topic> getAllTopics(){
@@ -26,9 +33,9 @@ public class TopicController {
         topicService.addTopic(topic);
     }
 
-    @RequestMapping(method = RequestMethod.PUT , value = "/topics/{id}")
-    public void updateTopicById(@RequestBody Topic topic,@PathVariable int id){
-        topicService.updateTopicById(topic , id);
+    @RequestMapping(method = RequestMethod.PUT , value = "/topics")
+    public void updateTopicById(@RequestBody Topic topic){
+        topicService.updateTopicById(topic);
     }
 
     @RequestMapping(method = RequestMethod.DELETE , value = "/topics/{id}")
