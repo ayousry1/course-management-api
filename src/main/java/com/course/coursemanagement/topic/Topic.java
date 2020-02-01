@@ -3,6 +3,11 @@ package com.course.coursemanagement.topic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * @author Ahmed Yousry
+ *
+ * this class acts as the topic entity
+ */
 @Entity
 public class Topic {
     @Id
