@@ -1,4 +1,4 @@
-package com.course.example.coursemanagementapi.course;
+package com.course.coursemanagement.course;
 
 import org.springframework.data.repository.CrudRepository;
 

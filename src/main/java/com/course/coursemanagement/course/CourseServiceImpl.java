@@ -1,4 +1,4 @@
-package com.course.example.coursemanagementapi.course;
+package com.course.coursemanagement.course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.course.example.coursemanagementapi;
+package com.course.coursemanagement;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;

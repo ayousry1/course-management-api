@@ -1,4 +1,4 @@
-package com.course.example.coursemanagementapi.topic;
+package com.course.coursemanagement.topic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

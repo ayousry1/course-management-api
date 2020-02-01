@@ -1,6 +1,6 @@
-package com.course.example.coursemanagementapi.course;
+package com.course.coursemanagement.course;
 
-import com.course.example.coursemanagementapi.topic.Topic;
+import com.course.coursemanagement.topic.Topic;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

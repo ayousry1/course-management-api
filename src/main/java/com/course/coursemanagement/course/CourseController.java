@@ -1,4 +1,4 @@
-package com.course.example.coursemanagementapi.course;
+package com.course.coursemanagement.course;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
