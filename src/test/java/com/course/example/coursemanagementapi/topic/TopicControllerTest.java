@@ -20,7 +20,7 @@ import java.util.List;
 import static org.mockito.BDDMockito.given;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(TopicController.class)
+@WebMvcTest(TopicControllerImpl.class)
 @AutoConfigureMockMvc(addFilters = false)
 public class TopicControllerTest {
 
@@ -28,7 +28,7 @@ public class TopicControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private TopicService topicService;
+    private TopicServiceImpl topicServiceImpl;
 
     private static String topicOneName = "topic 1";
     private static String topicOneDescription = "topic 1 description";
@@ -39,8 +39,8 @@ public class TopicControllerTest {
     public void setUp(){
         topicOneTestObj = new Topic(topicOneId, topicOneName, topicOneDescription);
         List<Topic> allTopics = Arrays.asList(topicOneTestObj);
-        given(topicService.getAllTopics()).willReturn(allTopics);
-        given(topicService.getTopicById(topicOneId)).willReturn(topicOneTestObj);
+        given(topicServiceImpl.getAllTopics()).willReturn(allTopics);
+        given(topicServiceImpl.getTopicById(topicOneId)).willReturn(topicOneTestObj);
     }
 
 

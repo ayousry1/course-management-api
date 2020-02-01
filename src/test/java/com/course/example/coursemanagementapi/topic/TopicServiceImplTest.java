@@ -12,18 +12,17 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TopicServiceTest
+public class TopicServiceImplTest
 {
     @MockBean
     private TopicRepository topicRepository;
 
     @Autowired
-    private TopicService topicService;
+    private TopicServiceImpl topicServiceImpl;
 
     private static String topicOneName = "topic 1";
     private static String topicOneDescription = "topic 1 description";
@@ -40,7 +39,7 @@ public class TopicServiceTest
 
     @Test
     public void whenGetTopicById_thenReturnTopicOneTestObj(){
-        Topic actual = topicService.getTopicById(topicOneId);
+        Topic actual = topicServiceImpl.getTopicById(topicOneId);
 
         Assert.assertNotNull(actual);
         Assert.assertEquals(topicOneId, actual.getId());
