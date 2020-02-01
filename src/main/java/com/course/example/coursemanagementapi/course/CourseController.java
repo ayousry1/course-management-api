@@ -1,49 +1,27 @@
 package com.course.example.coursemanagementapi.course;
 
-import com.course.example.coursemanagementapi.topic.Topic;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-@RestController
-public class CourseController {
+@RequestMapping("/courses")
+public interface CourseController {
+    @RequestMapping("/topics/{topicId}")
+    List<Course> getAllCoursesByTopicId(@PathVariable int topicId);
 
-    private CourseServiceImpl courseServiceImpl;
+    @RequestMapping("/{id}")
+    Course getCourseById(@PathVariable int id);
 
-    public CourseController() {
-    }
+    @RequestMapping(method = RequestMethod.POST , value = "/topics/{topicId}")
+    void addCourseUnderTopic(@RequestBody Course course , @PathVariable int topicId);
 
-    @Autowired
-    public CourseController(CourseServiceImpl courseServiceImpl) {
-        this.courseServiceImpl = courseServiceImpl;
-    }
+    @RequestMapping(method = RequestMethod.PUT , value = "/topics/{topicId}")
+    void updateCourseById(@RequestBody Course course, @PathVariable int topicId);
 
+    @RequestMapping(method = RequestMethod.DELETE , value = "/{id}")
+    void removeCourseById(@PathVariable int id);
 
-    @RequestMapping("/topics/{topicId}/courses")
-    public List<Course> getAllCoursesByTopicId(@PathVariable int topicId){
-        return  courseServiceImpl.getAllCoursesByTopicId(topicId);
-    }
-
-    @RequestMapping("/courses/{id}")
-    public Course getCourseById(@PathVariable int id){
-        return courseServiceImpl.getCourseById(id);
-    }
-
-    @RequestMapping(method = RequestMethod.POST , value = "/topics/{topicId}/courses")
-    public void addCourseUnderTopic(@RequestBody Course course , @PathVariable int topicId){
-        course.setTopic(new Topic(topicId));
-        courseServiceImpl.addCourseUnderTopic(course);
-    }
-
-    @RequestMapping(method = RequestMethod.PUT , value = "/topics/{topicId}/courses")
-    public void updateCourseById(@RequestBody Course course, @PathVariable int topicId){
-        course.setTopic(new Topic(topicId));
-        courseServiceImpl.updateCourseById(course);
-    }
-
-    @RequestMapping(method = RequestMethod.DELETE , value = "/courses/{id}")
-    public void removeCourseById(@PathVariable int id){
-        courseServiceImpl.removeCourseById(id);
-    }
 }
