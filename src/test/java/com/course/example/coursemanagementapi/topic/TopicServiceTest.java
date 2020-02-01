@@ -1,8 +1,6 @@
 package com.course.example.coursemanagementapi.topic;
 
-import com.course.example.coursemanagementapi.topic.Topic;
-import com.course.example.coursemanagementapi.topic.TopicRepository;
-import com.course.example.coursemanagementapi.topic.TopicService;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,8 +34,6 @@ public class TopicServiceTest
         Topic topicOneTestObj = new Topic(topicOneId, topicOneName, topicOneDescription);
         ArrayList<Topic> topicsList = new ArrayList<>();
         topicsList.add(topicOneTestObj);
-
-        Iterator<Topic> topicsIterator = topicsList.iterator();
 
         Mockito.when(topicRepository.findById(topicOneId)).thenReturn(java.util.Optional.ofNullable(topicOneTestObj));
     }

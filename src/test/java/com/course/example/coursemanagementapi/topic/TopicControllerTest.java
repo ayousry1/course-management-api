@@ -33,16 +33,19 @@ public class TopicControllerTest {
     private static String topicOneName = "topic 1";
     private static String topicOneDescription = "topic 1 description";
     private static int topicOneId = 1;
+    private  Topic topicOneTestObj;
+
+    @Before
+    public void setUp(){
+        topicOneTestObj = new Topic(topicOneId, topicOneName, topicOneDescription);
+        List<Topic> allTopics = Arrays.asList(topicOneTestObj);
+        given(topicService.getAllTopics()).willReturn(allTopics);
+        given(topicService.getTopicById(topicOneId)).willReturn(topicOneTestObj);
+    }
 
 
     @Test
     public void givenTopics_whenGetAllTopics_thenReturnJsonArray() throws Exception {
-
-        Topic topicOneTestObj = new Topic(topicOneId, topicOneName, topicOneDescription);
-
-        List<Topic> allTopics = Arrays.asList(topicOneTestObj);
-
-        given(topicService.getAllTopics()).willReturn(allTopics);
 
         mockMvc.perform( MockMvcRequestBuilders
                 .get("/topics")

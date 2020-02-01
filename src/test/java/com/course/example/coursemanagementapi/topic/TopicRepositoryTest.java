@@ -1,8 +1,7 @@
 package com.course.example.coursemanagementapi.topic;
 
 
-import com.course.example.coursemanagementapi.topic.Topic;
-import com.course.example.coursemanagementapi.topic.TopicRepository;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
