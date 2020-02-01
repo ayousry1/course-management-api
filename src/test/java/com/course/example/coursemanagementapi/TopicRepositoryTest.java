@@ -39,7 +39,7 @@ public class TopicRepositoryTest {
         // then
         Assert.notEmpty(found ,"testing that persistence happened");
         Assert.isTrue(found.get(0).getId() == topicOne.getId(),"testing that id is persisted correctly");
-        Assert.isTrue(found.get(0).getName() == topicOne.getName(),"testing that name is persisted correctly");
-        Assert.isTrue(found.get(0).getDescription() == topicOne.getDescription(),"testing that description is persisted correctly");
+        Assert.isTrue(found.get(0).getName().equals(topicOne.getName()) ,"testing that name is persisted correctly");
+        Assert.isTrue(found.get(0).getDescription().equals(topicOne.getDescription()),"testing that description is persisted correctly");
     }
 }
