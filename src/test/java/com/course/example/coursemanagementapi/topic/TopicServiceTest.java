@@ -1,4 +1,4 @@
-package com.course.example.coursemanagementapi;
+package com.course.example.coursemanagementapi.topic;
 
 import com.course.example.coursemanagementapi.topic.Topic;
 import com.course.example.coursemanagementapi.topic.TopicRepository;
