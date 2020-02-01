@@ -23,11 +23,15 @@ public class TopicRepositoryTest {
     @Autowired
     private TopicRepository topicRepository;
 
+    private static String topicOneName = "topic 1";
+    private static String topicOneDescription = "topic 1 description";
+    private static int topicOneId = 1;
+
 
     @Test
     public void whenFindAll_thenReturnPersistedTopic() {
         // given
-        Topic topicOne = new Topic(1 ,"topic 1" , "topic 1 description");
+        Topic topicOne = new Topic(topicOneId ,topicOneName , topicOneDescription);
         entityManager.persist(topicOne);
         entityManager.flush();
 

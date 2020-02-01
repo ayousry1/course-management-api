@@ -30,11 +30,15 @@ public class TopicControllerTest {
     @MockBean
     private TopicService topicService;
 
+    private static String topicOneName = "topic 1";
+    private static String topicOneDescription = "topic 1 description";
+    private static int topicOneId = 1;
+
 
     @Test
-    public void givenEmployees_whenGetEmployees_thenReturnJsonArray() throws Exception {
+    public void givenTopics_whenGetAllTopics_thenReturnJsonArray() throws Exception {
 
-        Topic topicOneTestObj = new Topic(1, "name", "description");
+        Topic topicOneTestObj = new Topic(topicOneId, topicOneName, topicOneDescription);
 
         List<Topic> allTopics = Arrays.asList(topicOneTestObj);
 
